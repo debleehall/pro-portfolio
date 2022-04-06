@@ -1,16 +1,16 @@
 import React, { useState, useEffect } from "react";
 import { Container, Row } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
-import pdf from "../../Assets/../Assets/Soumyajit_Behera-BIT_MESRA.pdf";
+import pdf from "../../Assets/../Assets/pdf/resume.pdf";
 import { AiOutlineDownload } from "react-icons/ai";
 import { Document, Page, pdfjs } from "react-pdf";
 import "react-pdf/dist/esm/Page/AnnotationLayer.css";
-pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.min.js`;
+pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
 
 const resumeLink =
-  "https://raw.githubusercontent.com/debleehall/portfolio/master/src/Assets/pdf/resume.pdf";
+  "https://raw.githubusercontent.com/debleehall/portfolio/main/src/Assets/pdf/resume.pdf";
 
-function ResumeNew() {
+function Resume() {
   const [width, setWidth] = useState(1200);
 
   useEffect(() => {
@@ -35,7 +35,7 @@ function ResumeNew() {
             style={{ maxWidth: "250px" }}
           >
             <AiOutlineDownload />
-            &nbsp;Download CV
+            &nbsp;Download Resume
           </Button>
         </Row>
       </Container>
@@ -43,4 +43,4 @@ function ResumeNew() {
   );
 }
 
-export default ResumeNew;
+export default Resume;
