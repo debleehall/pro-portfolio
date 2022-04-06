@@ -17,20 +17,21 @@ function Home() {
                             </h1>
 
                             <h1 className="heading-name">
-                                My name is 
+                                My name is
                                 <strong className="main-name"> Debbie Hall </strong>
                             </h1>
 
-                            
+
                             <div style={{ padding: 50, textAlign: "left" }}>
-                            
-                            <Type />
+
+                                <Type />
                             </div>
                         </Col>
+
                     </Row>
                 </Container>
             </Container>
-            
+
         </section>
     );
 }
