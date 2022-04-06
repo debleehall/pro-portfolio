@@ -171,7 +171,7 @@ function Projects() {
 
 {/* modules section */}
                     <p className="project-heading-2">
-                        Here are projects I worked on while learning from my bootcamp.
+                        Projects I made while following bootcamp lessons.
                     </p>
                     <Col md={3} className="project-card">
                         <ProjectCard
