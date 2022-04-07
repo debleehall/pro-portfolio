@@ -381,9 +381,6 @@ button:focus {
   bottom: 0 !important;
   padding-top: 10px !important;
   padding-bottom: 8px !important ;
-  position: absolute;
-  left: 0;
-  right: 0;
 }
 .footer-copywright {
   text-align: center !important;
