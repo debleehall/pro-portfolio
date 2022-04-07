@@ -1,5 +1,6 @@
 import React from "react";
 import ContactForm from "./ContactForm";
+import ContactForm2 from "./ContactForm2";
 import { Container, Row, Col } from "react-bootstrap";
 
 function Contact() {
@@ -18,7 +19,8 @@ function Contact() {
                         <h1 style={{ fontSize: "2.1em", paddingBottom: "20px" }}>
                             Contact <strong className="blue">Me</strong>
                         </h1>
-                        <ContactForm />
+                        {/* <ContactForm /> */}
+                        <ContactForm2 />
                     </Col>
                     <Col
                         md={5}
