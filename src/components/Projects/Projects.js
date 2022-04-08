@@ -107,17 +107,17 @@ function Projects() {
                     <Col md={3} className="project-card">
                         <ProjectCard
                             imgPath={note}
-                            title="Run Buddy"
-                            description="A website that offers fitness training services."
-                            link="https://github.com/debleehall/run-buddy"
+                            title="Note Taker"
+                            description="A command-line application that manages a company's employee database, using Node.js, Inquirer, and MySQL."
+                            link="https://github.com/debleehall/note-taker"
                         />
                     </Col>
                     <Col md={3} className="project-card">
                         <ProjectCard
                             imgPath={tracker}
-                            title="Note Taker"
+                            title="Employee Tracker"
                             description="An application that allows the user to write and save notes. The app uses an Express.js back end and is able to save and retrieve note data from a JSON file."
-                            link="https://github.com/debleehall/note-taker"
+                            link="https://github.com/debleehall/sql-employee-tracker"
                         />
                     </Col>
                     <Col md={3} className="project-card">
