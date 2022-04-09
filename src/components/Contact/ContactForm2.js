@@ -5,10 +5,11 @@ const ContactForm2 = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         setStatus("Sending...");
-        const { name, email, message } = e.target.elements;
+        const { name, email, subject, message } = e.target.elements;
         let details = {
             name: name.value,
             email: email.value,
+            subject: subject.value,
             message: message.value,
         };
         let response = await fetch("http://localhost:5000/contact", {
@@ -31,6 +32,10 @@ const ContactForm2 = () => {
             <div>
                 <label htmlFor="email">Email:</label>
                 <input type="email" id="email" required />
+            </div>
+            <div>
+                <label htmlFor="subject">Subject:</label>
+                <input type="text" id="subject" required />
             </div>
             <div>
                 <label htmlFor="message">Message:</label>
