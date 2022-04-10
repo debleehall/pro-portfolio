@@ -1,65 +1,79 @@
-import React, { useState } from 'react';
+import React from 'react';
+import axios from 'axios';
 
-import { validateEmail } from '../../utils/helpers';
+class ContactForm extends React.Component {
 
-function ContactForm() {
-    const [formState, setFormState] = useState({ name: '', email: '', message: '' });
+    constructor(props) {
+        super(props);
+        this.state = {
+            name: '',
+            email: '',
+            subject: '',
+            message: ''
+        }
+    }
 
-    const [errorMessage, setErrorMessage] = useState('');
-    const { name, email, message } = formState;
-
-    const handleSubmit = (e) => {
+    handleSubmit(e) {
         e.preventDefault();
-        if (!errorMessage) {
-            console.log('Submit Form', formState);
-        }
-    };
-
-    const handleChange = (e) => {
-        if (e.target.name === 'email') {
-            const isValid = validateEmail(e.target.value);
-            if (!isValid) {
-                setErrorMessage('Your email is invalid.');
-            } else {
-                setErrorMessage('');
+        axios({
+            method: "POST",
+            url: "/send",
+            data: this.state
+        }).then((response) => {
+            if (response.data.status === 'success') {
+                alert("Message Sent.");
+                this.resetForm()
+            } else if (response.data.status === 'fail') {
+                alert("Message failed to send.")
             }
-        } else {
-            if (!e.target.value.length) {
-                setErrorMessage(`${e.target.name} is required.`);
-            } else {
-                setErrorMessage('');
-            }
-        }
-        if (!errorMessage) {
-            setFormState({ ...formState, [e.target.name]: e.target.value });
-            console.log('Handle Form', formState);
-        }
-    };
+        })
+    }
 
-    return (
-        <section>
-            <form id="contact-form" onSubmit={handleSubmit}>
-                <div>
-                    <label htmlFor="name">Name:</label>
-                    <input type="text" name="name" defaultValue={name} onBlur={handleChange} />
-                </div>
-                <div>
-                    <label htmlFor="email">Email address:</label>
-                    <input type="email" name="email" defaultValue={email} onBlur={handleChange} />
-                </div>
-                <div>
-                    <label htmlFor="message">Message:</label>
-                    <textarea name="message" rows="5" defaultValue={message} onBlur={handleChange} />
-                </div>
-                {errorMessage && (
-                    <div>
-                        <p className="error-text">{errorMessage}</p>
+    resetForm() {
+        this.setState({ name: "", email: "", subject: "", message: "" })
+    }
+
+    render() {
+        return (
+            <div className="App">
+                <form id="contact-form" onSubmit={this.handleSubmit.bind(this)} method="POST">
+                    <div className="form-group">
+                        <label htmlFor="name">Name</label>
+                        <input type="text" className="form-control" id="name" value={this.state.name} onChange={this.onNameChange.bind(this)} />
                     </div>
-                )}
-                <button data-testid="button" type="submit">Submit</button>
-            </form>
-        </section>
-    );
+                    <div className="form-group">
+                        <label htmlFor="exampleInputEmail1">Email address</label>
+                        <input type="email" className="form-control" id="email" aria-describedby="emailHelp" value={this.state.email} onChange={this.onEmailChange.bind(this)} />
+                    </div>
+                    <div className="form-group">
+                        <label htmlFor="name">Subject</label>
+                        <input type="text" className="form-control" id="subject" value={this.state.subject} onChange={this.onSubjectChange.bind(this)} />
+                    </div>
+                    <div className="form-group">
+                        <label htmlFor="message">Message</label>
+                        <textarea className="form-control" rows="5" id="message" value={this.state.message} onChange={this.onMessageChange.bind(this)} />
+                    </div>
+                    <button type="submit" className="btn btn-primary">Submit</button>
+                </form>
+            </div>
+        );
+    }
+
+    onNameChange(event) {
+        this.setState({ name: event.target.value })
+    }
+
+    onEmailChange(event) {
+        this.setState({ email: event.target.value })
+    }
+
+    onSubjectChange(event) {
+        this.setState({ subject: event.target.value })
+    }
+
+    onMessageChange(event) {
+        this.setState({ message: event.target.value })
+    }
 }
 
 export default ContactForm;

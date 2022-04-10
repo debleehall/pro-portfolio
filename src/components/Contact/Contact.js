@@ -1,7 +1,5 @@
 import React from "react";
 import ContactForm from "./ContactForm";
-import ContactForm2 from "./ContactForm2";
-import ContactForm3 from "./ContactForm3";
 import { Container, Row, Col } from "react-bootstrap";
 
 function Contact() {
@@ -20,15 +18,13 @@ function Contact() {
                         <h1 style={{ fontSize: "2.1em", paddingBottom: "20px" }}>
                             Contact <strong className="blue">Me</strong>
                         </h1>
-                        {/* <ContactForm /> */}
-                        <ContactForm2 />
-                        {/* <ContactForm3 /> */}
+                        <ContactForm />
                     </Col>
                     <Col
                         md={5}
                         style={{ paddingTop: "120px", paddingBottom: "50px" }}
                     >
-                        <p className="contact-info">Phone: (740) 816-6226</p>
+                        <p className="contact-info">Please use this form to to contact me or use the email below. Looking forward to hearing from you.</p>
                         <p className="contact-info">Email: debleehall15@gmail.com</p>
                     </Col>
                 </Row>
