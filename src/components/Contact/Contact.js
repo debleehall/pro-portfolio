@@ -24,7 +24,7 @@ function Contact() {
                         md={5}
                         style={{ paddingTop: "120px", paddingBottom: "50px" }}
                     >
-                        <p className="contact-info">Please use this form to to contact me or use the email below. Looking forward to hearing from you.</p>
+                        <p className="contact-info">Please use this form to contact me or use the email below. Looking forward to hearing from you.</p>
                         <p className="contact-info">Email: debleehall15@gmail.com</p>
                     </Col>
                 </Row>

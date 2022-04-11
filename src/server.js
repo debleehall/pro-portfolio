@@ -2,26 +2,19 @@ var express = require('express');
 var router = express.Router();
 var nodemailer = require('nodemailer');
 var cors = require('cors');
-// const creds = require('./config');
-// const { getDefaultNormalizer } = require('@testing-library/react');
 
-const app = express()
-app.use(cors())
-app.use(express.json())
-app.use('/', router)
-app.listen(3002)
-
-
-const contactEmail = nodemailer.createTransport({
-    host: 'gmail',
-    // port: 587,
+var transport = {
+    host: 'smtp.gmail.com',
+    port: 587,
     auth: {
         user: 'debleehall15@gmail.com',
-        pass: 'Disneyfan92'
+        pass: 'zhwyyefbbnexlvwb'
     }
-});
+}
 
-contactEmail.verify((error) => {
+var transporter = nodemailer.createTransport(transport)
+
+transporter.verify((error, success) => {
     if (error) {
         console.log(error);
     } else {
@@ -29,27 +22,35 @@ contactEmail.verify((error) => {
     }
 });
 
-router.post('/contact', (req, res) => {
+router.post('/send', (req, res, next) => {
     var name = req.body.name
     var email = req.body.email
     var subject = req.body.subject
     var message = req.body.message
-    // var content = `name: ${name} \n email: ${email} \n message: ${message} `
+    var content = `name: ${name} \n email: ${email} \n subject: ${subject} \n message: ${message} `
 
     var mail = {
         from: name,
         to: 'debleehall15@gmail.com',
         subject: subject,
-        html: `<p>Name: ${name}</p>
-           <p>Email: ${email}</p>
-           <p>Message: ${message}</p>`,
-    };
+        text: content
+    }
 
-    contactEmail.sendMail(mail, (error) => {
-        if (error) {
-            res.json({ status: error });
+    transporter.sendMail(mail, (err, data) => {
+        if (err) {
+            res.json({
+                status: 'fail'
+            })
         } else {
-            res.json({ status: "message sent" })
+            res.json({
+                status: 'success'
+            })
         }
-    });
-});
+    })
+})
+
+const app = express()
+app.use(cors())
+app.use(express.json())
+app.use('/', router)
+app.listen(3002)
