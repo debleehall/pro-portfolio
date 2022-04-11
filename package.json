@@ -32,7 +32,7 @@
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
-    "develop": "concurrently \"node sever.js\" \"npm start\""
+    "dev": "concurrently \"npm start\" \"node server.js\""
   },
   "eslintConfig": {
     "extends": [
