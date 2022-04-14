@@ -18,7 +18,7 @@ import social from "../../Assets/images/challenges/18.social.png";
 // import group projects
 import film from "../../Assets/images/group-projects/1.film.feast.png";
 import forum from "../../Assets/images/group-projects/2.the.forum.png";
-import zoo from "../../Assets/images/group-projects/3.bootcamp.zoo";
+import zoo from "../../Assets/images/group-projects/3.bootcamp.zoo.png";
 // import module images
 import runBuddy from "../../Assets/images/modules/1.2.run.buddy.png";
 import robot from "../../Assets/images/modules/3.robot.gladiators.png";
