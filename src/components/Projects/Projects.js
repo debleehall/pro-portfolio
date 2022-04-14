@@ -18,6 +18,7 @@ import social from "../../Assets/images/challenges/18.social.png";
 // import group projects
 import film from "../../Assets/images/group-projects/1.film.feast.png";
 import forum from "../../Assets/images/group-projects/2.the.forum.png";
+import zoo from "../../Assets/images/group-projects/3.bootcamp.zoo";
 // import module images
 import runBuddy from "../../Assets/images/modules/1.2.run.buddy.png";
 import robot from "../../Assets/images/modules/3.robot.gladiators.png";
@@ -33,7 +34,6 @@ import pizza from "../../Assets/images/modules/18.pizza.hunt.png";
 import foodFest from "../../Assets/images/modules/19.food.festival.png";
 import photoPort from "../../Assets/images/modules/20.photo.port.png";
 import thoughts from "../../Assets/images/modules/21.deep.thoughts.png";
-
 
 function Projects() {
     return (
@@ -166,6 +166,14 @@ function Projects() {
                             title="Group Project 2: The Forum"
                             description="Our web application for The Forum is an interactive, full-stack application that accepts user input and features encryption for user passwords. Our goal is to provide people with a comfortable place to discuss the topics that they are most interested in."
                             link="https://github.com/cmrotruck/the-forum"
+                        />
+                    </Col>
+                    <Col md={3} className="project-card">
+                        <ProjectCard
+                            imgPath={zoo}
+                            title="Group Project 3: Bootcamp Zoo"
+                            description="The bootcamp zoo is web application dedicated to animal habits and conservation efforts. We made this because we want to promote animal welfare and affect change."
+                            link="https://github.com/cmrotruck/bootcamp-zoo"
                         />
                     </Col>
 
